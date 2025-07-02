@@ -14,7 +14,6 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
     private lateinit var editProfileLauncher: ActivityResultLauncher<Intent>
 
-    // Profile data using data class
     private var profile = Profile()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,13 +23,9 @@ class ProfileActivity : AppCompatActivity() {
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Initialize ActivityResultLauncher
         setupActivityResultLauncher()
-
-        // Display initial profile data
         updateProfileDisplay()
 
-        // Set click listener for edit button
         binding.btnEdit.setOnClickListener {
             Log.d("ProfileActivity", "📝 Edit button clicked - launching EditProfileActivity")
             Log.d("ProfileActivity", "⏸️ ProfileActivity will be PAUSED (not destroyed)")

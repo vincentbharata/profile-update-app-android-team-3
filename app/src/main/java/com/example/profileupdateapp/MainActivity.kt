@@ -10,10 +10,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         Log.d("MainActivity", "onCreate called")
 
-        // Launch ProfileActivity
         val intent = Intent(this, ProfileActivity::class.java)
         startActivity(intent)
-        finish() // Close MainActivity
+        finish()
     }
 
     override fun onStart() {

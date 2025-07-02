@@ -19,19 +19,16 @@ class EditProfileActivity : AppCompatActivity() {
         binding = ActivityEditProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Get data from intent
         val currentName = intent.getStringExtra("name") ?: ""
         val currentAge = intent.getStringExtra("age") ?: ""
         val currentEmail = intent.getStringExtra("email") ?: ""
 
-        // Populate fields with current data
         binding.etName.setText(currentName)
         binding.etAge.setText(currentAge)
         binding.etEmail.setText(currentEmail)
 
         Log.d("EditProfileActivity", "📋 Loaded data - Name: $currentName, Age: $currentAge, Email: $currentEmail")
 
-        // Set click listeners
         binding.btnSave.setOnClickListener {
             saveProfile()
         }
@@ -49,7 +46,6 @@ class EditProfileActivity : AppCompatActivity() {
         val age = binding.etAge.text.toString().trim()
         val email = binding.etEmail.text.toString().trim()
 
-        // Enhanced validation
         when {
             name.isEmpty() -> {
                 binding.etName.error = "Name is required"
@@ -86,7 +82,6 @@ class EditProfileActivity : AppCompatActivity() {
         Log.d("EditProfileActivity", "✅ Validation passed - saving profile")
         Log.d("EditProfileActivity", "💾 Saving profile - Name: $name, Age: $age, Email: $email")
 
-        // Create result intent with updated data
         val resultIntent = Intent().apply {
             putExtra("name", name)
             putExtra("age", age)
